@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/alan/Projects/lib/quick_script/lib/quick_script'
+let g:netrw_dirhist_2='/Users/alan/Projects/lib/quick_script/lib/quick_script/assets'
+let g:netrw_dirhist_3='/Users/alan/Projects/lib/quick_script/lib/quick_script/assets/js'
+let g:netrw_dirhist_4='/Users/alan/Projects/web/patentdb'
+let g:netrw_dirhist_5='/Users/alan/Projects/web/patentdb/app'

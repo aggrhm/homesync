@@ -1,0 +1,10 @@
+# Makefile
+# Name:			Alan Graham
+# Email:		alan.g.graham@gmail.com
+# Course:			
+# Executable:		
+# Date:			
+# Compiler:		g++
+# Description:		
+# 
+# 

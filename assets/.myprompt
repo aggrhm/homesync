@@ -1,0 +1,184 @@
+#!/bin/bash
+
+function myprompt
+{
+local NONE='\[\033[0m\]'
+local WHITE_1='\[\033[0;1m\]'
+local BLACK='\[\033[0;30m\]'
+local GRAY='\[\033[1;30m\]'
+local RED='\[\033[0;31m\]'
+local LIGHT_RED='\[\033[1;31m\]'
+local GREEN='\[\033[0;32m\]'
+local LIGHT_GREEN='\[\033[1;32m\]'
+local BROWN='\[\033[0;33m\]'
+local YELLOW='\[\033[1;33m\]'
+local BLUE='\[\033[0;34m\]'
+local LIGHT_BLUE='\[\033[1;34m\]'
+local PURPLE='\[\033[0;35m\]'
+local LIGHT_PURPLE='\[\033[1;35m\]'
+local CYAN='\[\033[0;36m\]'
+local LIGHT_CYAN='\[\033[0;1;36m\]'
+local LIGHT_GRAY='\[\033[0;37m\]'
+local WHITE='\[\033[1;37m\]'
+
+
+local BRACE_COLOR=$NONE
+local LBRACE=$BRACE_COLOR[$BRACE_COLOR
+local RBRACE=$BRACE_COLOR]$BRACE_COLOR
+local SYMBOL
+local PWD="\W"
+
+if [ `whoami` = root ]; then
+	#echo 'ROOT USER'
+	SYMBOL="#"
+else
+	#echo 'NON-ROOT USER'
+	SYMBOL="\$"
+fi
+
+if [[ $1 = "-h" || $1 = "--help" || $1 = "-?" ]]; then
+	echo "USAGE:"
+	echo "        stephan_prompt [-s | -l]"
+	echo " "
+	echo "DESCRIPTION:"
+	echo "      Format the PS1 prompt string to have colors."
+	echo " "
+	echo "      -s, --short"
+	echo "            Default option shows the path as a truncated."
+	echo " "
+	echo "      -l, --long"
+	echo "            Show the full path in the prompt.  Same as the pwd command"
+	echo " "
+	echo "      -?, -h, --help"
+	echo "            Display usage options"
+	echo " "
+else
+
+	if [[ $1 = "--short" || $1 = "-s" ]]; then
+		#echo "setting path display to short"
+		PWD="\W"
+	fi
+
+	if [[ $1 = "--long" || $1 = "-l" ]]; then
+		#echo "setting path display to long"
+		PWD="\w"
+	fi
+fi
+
+
+export PS1="$LBRACE\
+$LIGHT_BLUE\h\
+$RBRACE\
+$LBRACE\
+$GREEN\u\
+$RBRACE\
+$LBRACE\
+$LIGHT_RED$PWD\
+$RBRACE\
+$LIGHT_BLUE$SYMBOL$NONE "
+
+}
+
+function qsprompt {
+local NONE='\[\033[0m\]'
+local WHITE_1='\[\033[0;1m\]'
+local BLACK='\[\033[0;30m\]'
+local GRAY='\[\033[1;30m\]'
+local RED='\[\033[0;31m\]'
+local LIGHT_RED='\[\033[1;31m\]'
+local GREEN='\[\033[0;32m\]'
+local LIGHT_GREEN='\[\033[1;32m\]'
+local BROWN='\[\033[0;33m\]'
+local YELLOW='\[\033[1;33m\]'
+local BLUE='\[\033[0;34m\]'
+local LIGHT_BLUE='\[\033[1;34m\]'
+local PURPLE='\[\033[0;35m\]'
+local LIGHT_PURPLE='\[\033[1;35m\]'
+local CYAN='\[\033[0;36m\]'
+local LIGHT_CYAN='\[\033[0;1;36m\]'
+local LIGHT_GRAY='\[\033[0;37m\]'
+local WHITE='\[\033[1;37m\]'
+
+
+local BRACE_COLOR=$GRAY
+local AT_COLOR=$GRAY
+local LBRACE=$BRACE_COLOR[$BRACE_COLOR
+local RBRACE=$BRACE_COLOR]$BRACE_COLOR
+local ATSIGN=$AT_COLOR@$AT_COLOR
+local SYMBOL
+local PWD="\W"
+
+if [ `whoami` = root ]; then
+	#echo 'ROOT USER'
+	SYMBOL="#"
+else
+	#echo 'NON-ROOT USER'
+	SYMBOL="\$"
+fi
+
+if [[ $1 = "-h" || $1 = "--help" || $1 = "-?" ]]; then
+	echo "USAGE:"
+	echo "        stephan_prompt [-s | -l]"
+	echo " "
+	echo "DESCRIPTION:"
+	echo "      Format the PS1 prompt string to have colors."
+	echo " "
+	echo "      -s, --short"
+	echo "            Default option shows the path as a truncated."
+	echo " "
+	echo "      -l, --long"
+	echo "            Show the full path in the prompt.  Same as the pwd command"
+	echo " "
+	echo "      -?, -h, --help"
+	echo "            Display usage options"
+	echo " "
+else
+
+	if [[ $1 = "--short" || $1 = "-s" ]]; then
+		#echo "setting path display to short"
+		PWD="\W"
+	fi
+
+	if [[ $1 = "--long" || $1 = "-l" ]]; then
+		#echo "setting path display to long"
+		PWD="\w"
+	fi
+fi
+
+
+export PS1="$GRAY---------------\
+$YELLOW\$(parse_git_branch)\
+$LBRACE\
+$LIGHT_BLUE\w\
+$RBRACE\n\
+$LBRACE\
+$LIGHT_BLUE\h\
+$RBRACE\
+$LBRACE\
+$GREEN\u\
+$RBRACE\
+$LIGHT_BLUE$SYMBOL$NONE "
+}
+
+function parse_git_branch {
+	local NONE='\[\033[0m\]'
+	local GREEN='\[\033[0;32m\]'
+	local BRACE_COLOR=$NONE
+	local LBRACE=$BRACE_COLOR[$BRACE_COLOR
+	local RBRACE=$BRACE_COLOR]$BRACE_COLOR
+
+	if [ "`git rev-parse --git-dir 2>/dev/null`" == "/home/`whoami`/.git" ]; then
+		return
+	fi
+
+	if [ "`pwd`" == "/home/`whoami`" ]; then
+		return
+	fi
+
+	ref=$(git symbolic-ref HEAD 2>/dev/null) || return
+	echo "(${ref#refs/heads/})"
+	#echo $(__git_ps1)
+}
+
+
+

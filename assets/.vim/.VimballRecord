@@ -1,0 +1,1 @@
+vimwiki_0_4.vba: call delete('/home/alan/.vim/plugin/vimwiki.vim')|call delete('/home/alan/.vim/autoload/vimwiki.vim')|call delete('/home/alan/.vim/ftplugin/vimwiki.vim')|call delete('/home/alan/.vim/syntax/vimwiki.vim')
