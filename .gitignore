@@ -1,0 +1,3 @@
+*.swp
+*.swo
+shared/vim/vim/backup/

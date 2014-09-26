@@ -54,6 +54,7 @@
 
 	" Uncomment this line to turn off backup files
 	set nobackup
+	set dir=~/.vim/backup//
 
 	" Switch syntax highlighting on, when the terminal has colors
 	" Also switch on highlighting the last used search pattern.
@@ -75,6 +76,8 @@
 
 	  " For all text files set 'textwidth' to 78 characters.
 	  autocmd FileType text setlocal textwidth=78
+	  autocmd FileType ruby setlocal expandtab
+	  autocmd FileType haml setlocal noexpandtab
 
 	  " When editing a file, always jump to the last known cursor position.
 	  " Don't do it when the position is invalid or when inside an event handler
@@ -95,6 +98,12 @@
 	au BufRead,BufNewFile *.thtml set syntax=php
 	au BufRead,BufNewFile *.module set syntax=php
 
+	au BufRead,BufNewFile *.md set filetype=markdown
+
+	" automatically source vim sessions so I can open them with the finder
+	set sessionoptions+=resize,winpos
+	au BufRead *.vis so %
+
 autocmd BufEnter * :cd %:p:h
 
 if has("gui_running")
@@ -104,6 +113,8 @@ if has("gui_running")
 endif
 
 imap \\t <%=  %><LEFT><LEFT><LEFT>
+imap \\a {{  }}<LEFT><LEFT><LEFT>
+imap \\d data-bind=""<LEFT>
 imap \\h {{html  }}<LEFT><LEFT><LEFT>
 imap \\p <?php  ?><LEFT><LEFT><LEFT>
 map <C-F11> :tabp<CR>
@@ -111,8 +122,15 @@ map <C-F12> :tabn<CR>
 map <D-[> :tabp<CR>
 map <D-]> :tabn<CR>
 map <S-T> :Rtree<CR>
+map \\b :set noet<bar>retab!<CR>
+map \\w :set co=160<CR>
 
+map ,s :ProjectRootExe mksession! session.vis<CR>
+map ,e :CtrlP<CR>
+"set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 
 let g:vimwiki_home = "/home/alan/wiki/"
 let g:vimwiki_home_html = "/home/alan/wiki/html/"
+
+execute pathogen#infect()

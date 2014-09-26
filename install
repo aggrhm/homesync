@@ -1,0 +1,46 @@
+#! /usr/bin/env ruby
+
+require 'json'
+
+ROOT = File.dirname(__FILE__)
+HOME = ENV["HOME"]
+
+def build_opts(type)
+  ret = {}
+  ret[:path] = File.join(ROOT, type)
+  return ret
+end
+
+def install_package(pkg_name)
+  pkg = @manifest["packages"][pkg_name]
+  abort "Package not found!" if pkg.nil? 
+  pkg.each do |src, dest|
+    if src == "!include"
+      dest.each do |pkg_name|
+        install_package(pkg_name)
+      end
+    else
+      abs = File.absolute_path(src, ROOT)
+      d = File.join(HOME, dest)
+      puts "Linking #{abs} to #{d}"
+      #`ln -s #{abs} #{d}`
+    end
+  end
+end
+
+# parse type
+pkg_name = ARGV[0]
+
+@manifest = JSON.parse( File.read(File.join(ROOT, "manifest.json")) )
+if pkg_name.nil?
+  puts "Available Packages:"
+  puts @manifest["packages"].keys.collect{|s| "\t * #{s}"}.join("\n")
+  exit 1
+end
+
+pkg_name = pkg_name.strip
+
+
+# install package
+install_package(pkg_name)
+

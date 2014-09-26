@@ -1,0 +1,32 @@
+{
+	"packages": {
+		"vim": {
+			"shared/vim/vimrc": ".vimrc",
+			"shared/vim/vim": ".vim"
+		},
+		"bins": {
+			"shared/bin/psp": "bin/psp"
+		},
+		"mac-bins": {
+			"mac/bin/diffmerge": "bin/diffmerge",
+			"mac/bin/mvim": "bin/mvim",
+			"mac/bin/restart_mongo": "bin/restart_mongo",
+			"mac/bin/ssh-copy-id": "bin/ssh-copy-id",
+			"mac/bin/wget": "bin/wget"
+		},
+		"mac-term": {
+			"shared/conf/myprompt": ".myprompt",
+			"mac/conf/bash_extras": ".bash_extras",
+			"mac/conf/bwtheme.terminal": "bwtheme.terminal"
+		},
+		"mac-all": {
+			"!include" : ["bins", "mac-bins", "mac-term", "vim"]
+		},
+		"ubuntu-bins": {
+			"!include" : ["bins"]
+		},
+		"ubuntu-aliases": {
+			"ubuntu/bash_aliases" : ".bash_aliases"
+		}
+	}
+}
