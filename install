@@ -23,7 +23,7 @@ def install_package(pkg_name)
       abs = File.absolute_path(src, ROOT)
       d = File.join(HOME, dest)
       puts "Linking #{abs} to #{d}"
-      #`ln -s #{abs} #{d}`
+      `ln -s #{abs} #{d}`
     end
   end
 end
