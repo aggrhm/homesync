@@ -12,6 +12,17 @@
 " This must be first, because it changes other options as a side effect.
 
 	set nocompatible
+	filetype off
+
+	set rtp+=~/.vim/bundle/Vundle.vim
+	call vundle#begin()
+
+	Plugin 'gmarik/Vundle.vim'
+	Plugin 'kien/ctrlp.vim'
+	Plugin 'ekalinin/Dockerfile.vim'
+
+	call vundle#end()
+	filetype plugin indent on
 
 	" allow backspacing over everything in insert mode
 	"set backspace=indent,eol,start
@@ -35,7 +46,11 @@
 	" let &guioptions = substitute(&guioptions, "t", "", "g")
 	set guioptions=ai
 	"set guifont=Courier\ 10\ Pitch\ 10
-	set guifont=Monaco:h11
+	if has("gui_macvim")
+		set guifont=Monaco:h11
+	else
+		set guifont=Monospace:h10
+	end
 
 	" Don't use Ex mode, use Q for formatting
 	map Q gq
@@ -129,8 +144,3 @@ map ,s :ProjectRootExe mksession! session.vis<CR>
 map ,e :CtrlP<CR>
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
 
-
-let g:vimwiki_home = "/home/alan/wiki/"
-let g:vimwiki_home_html = "/home/alan/wiki/html/"
-
-execute pathogen#infect()

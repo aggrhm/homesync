@@ -1,32 +1,46 @@
 {
 	"packages": {
 		"vim": {
-			"shared/vim/vimrc": ".vimrc",
-			"shared/vim/vim": ".vim"
+			"dirs": [".vim", ".vim/bundle", ".vim/backup"],
+			"links": {
+				"shared/vim/vimrc": ".vimrc",
+				"shared/vim/colors": ".vim/colors"
+			},
+			"postscripts": [
+				"git clone https://github.com/gmarik/Vundle.vim.git .vim/bundle/Vundle.vim"
+			]
 		},
 		"bins": {
-			"shared/bin/psp": "bin/psp"
+			"links": {
+				"shared/bin/psp": "bin/psp"
+			}
 		},
 		"mac-bins": {
-			"mac/bin/diffmerge": "bin/diffmerge",
-			"mac/bin/mvim": "bin/mvim",
-			"mac/bin/restart_mongo": "bin/restart_mongo",
-			"mac/bin/ssh-copy-id": "bin/ssh-copy-id",
-			"mac/bin/wget": "bin/wget"
+			"links": {
+				"mac/bin/diffmerge": "bin/diffmerge",
+				"mac/bin/mvim": "bin/mvim",
+				"mac/bin/restart_mongo": "bin/restart_mongo",
+				"mac/bin/ssh-copy-id": "bin/ssh-copy-id",
+				"mac/bin/wget": "bin/wget"
+			}
 		},
 		"mac-term": {
-			"shared/conf/myprompt": ".myprompt",
-			"mac/conf/bash_extras": ".bash_extras",
-			"mac/conf/bwtheme.terminal": "bwtheme.terminal"
+			"links": {
+				"shared/conf/myprompt": ".myprompt",
+				"mac/conf/bash_extras": ".bash_extras",
+				"mac/conf/bwtheme.terminal": "bwtheme.terminal"
+			}
 		},
 		"mac-all": {
-			"!include" : ["bins", "mac-bins", "mac-term", "vim"]
+			"includes" : ["bins", "mac-bins", "mac-term", "vim"]
 		},
 		"ubuntu-bins": {
-			"!include" : ["bins"]
+			"includes" : ["bins"]
 		},
 		"ubuntu-aliases": {
-			"ubuntu/bash_aliases" : ".bash_aliases"
+			"links": {
+				"ubuntu/bash_aliases" : ".bash_aliases"
+			}
 		}
 	}
 }

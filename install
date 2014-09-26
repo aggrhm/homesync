@@ -4,6 +4,7 @@ require 'json'
 
 ROOT = File.dirname(__FILE__)
 HOME = ENV["HOME"]
+DEBUG = false
 
 def build_opts(type)
   ret = {}
@@ -14,16 +15,34 @@ end
 def install_package(pkg_name)
   pkg = @manifest["packages"][pkg_name]
   abort "Package not found!" if pkg.nil? 
-  pkg.each do |src, dest|
-    if src == "!include"
-      dest.each do |pkg_name|
+  puts "Installing package #{pkg_name}..."
+  pkg.each do |inst, opts|
+    if inst == "includes"
+      opts.each do |pkg_name|
         install_package(pkg_name)
       end
-    else
-      abs = File.absolute_path(src, ROOT)
-      d = File.join(HOME, dest)
-      puts "Linking #{abs} to #{d}"
-      `ln -s #{abs} #{d}`
+    elsif inst == "links"
+      opts.each do |src, dest|
+        abs = File.absolute_path(src, ROOT)
+        d = File.join(HOME, dest)
+        if File.exist?(d)
+          puts "File #{d} already exists, skipping"
+        else
+          puts "Linking #{abs} to #{d}"
+          `ln -s #{abs} #{d}` unless DEBUG
+        end
+      end
+    elsif inst == "dirs"
+      opts.each do |dir|
+        d = File.join(HOME, dir)
+        puts "Making directory #{dir}"
+        `mkdir #{d}` unless DEBUG
+      end
+    elsif inst == "postscripts"
+      opts.each do |cmd|
+        puts "Running #{cmd}"
+        `cd #{HOME} && #{cmd}` unless DEBUG
+      end
     end
   end
 end
