@@ -41,6 +41,9 @@
 			"links": {
 				"ubuntu/bash_aliases" : ".bash_aliases"
 			}
+		},
+		"ubuntu-all" : {
+			"includes" : ["ubuntu-bins", "ubuntu-aliases", "vim"]
 		}
 	}
 }

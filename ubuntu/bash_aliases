@@ -1,1 +1,2 @@
 alias v='gvim'
+alias be='bundle exec'
