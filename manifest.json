@@ -11,11 +11,13 @@
 			]
 		},
 		"bins": {
+			"dirs" : ["bin"],
 			"links": {
 				"shared/bin/psp": "bin/psp"
 			}
 		},
 		"mac-bins": {
+			"dirs" : ["bin"],
 			"links": {
 				"mac/bin/diffmerge": "bin/diffmerge",
 				"mac/bin/mvim": "bin/mvim",

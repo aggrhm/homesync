@@ -23,6 +23,8 @@
 	Plugin 'ekalinin/Dockerfile.vim'
 	Plugin 'kchmck/vim-coffee-script'
 	Plugin 'dbakker/vim-projectroot'
+	Plugin 'groenewege/vim-less'
+	Plugin 'keith/swift.vim'
 
 	call vundle#end()
 	filetype plugin indent on
@@ -117,6 +119,7 @@
 	au BufRead,BufNewFile *.module set syntax=php
 
 	au BufRead,BufNewFile *.md set filetype=markdown
+	au BufRead,BufNewFile *.jhaml set filetype=haml
 
 	" automatically source vim sessions so I can open them with the finder
 	set sessionoptions+=resize,winpos
