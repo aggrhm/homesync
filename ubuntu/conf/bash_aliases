@@ -1,0 +1,33 @@
+alias be='bundle exec'
+
+# FRAMEHERO
+alias cfha='cd ~/Projects/api/framehero'
+alias cfhw='cd ~/Projects/web/framehero'
+alias cfhd='cd ~/Projects/deploy/framehero'
+alias rfha='cd ~/Projects/api/framehero; bundle exec rails s -p 4010'
+alias rfhw='cd ~/Projects/web/framehero; bundle exec rails s -p 3010'
+alias rfhj='cd ~/Projects/api/framehero; bundle exec script/job_processor restart'
+alias rfhc='cd ~/Projects/api/framehero; bundle exec rails console'
+alias rfhm='cd ~/Projects/web/mediasurf; QUICK_FILE_CONFIG=~/Projects/api/framehero/config/quick_file.yml bundle exec ruby app.rb -o 0.0.0.0 -p 5010'
+
+# SPOTFLASH
+alias csfa='cd ~/Projects/api/spotflash'
+alias rsfa='cd ~/Projects/api/spotflash; bundle exec rails s -p 4000'
+alias rsfj='cd ~/Projects/api/spotflash; bundle exec script/job_processor restart'
+alias rsfc='cd ~/Projects/api/spotflash; bundle exec rails console'
+alias csfw='cd ~/Projects/web/spotflash'
+alias rsfw='cd ~/Projects/web/spotflash; bundle exec rails s -p 3000'
+alias csfd='cd ~/Projects/deploy/spotflash'
+
+# BOXCHIEF
+alias cbcw='cd ~/Projects/web/boxchief'
+alias cbcd='cd ~/Projects/deploy/boxchief'
+alias rbcw='cd ~/Projects/web/boxchief && bundle exec rails s -p 3012'
+alias rbcj='cd ~/Projects/web/boxchief && bundle exec script/job_processor restart'
+
+# DOCSBY
+alias cdbw='cd ~/Projects/web/docsby'
+alias cdbd='cd ~/Projects/deploy/docsby'
+alias rdbw='cd ~/Projects/web/docsby && bundle exec rails s -p 3015'
+alias rdbj='cd ~/Projects/web/docsby && bundle exec script/job_processor restart'
+

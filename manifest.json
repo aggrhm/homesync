@@ -39,13 +39,14 @@
 		"ubuntu-bins": {
 			"includes" : ["bins"]
 		},
-		"ubuntu-aliases": {
+		"ubuntu-conf": {
 			"links": {
-				"ubuntu/bash_aliases" : ".bash_aliases"
+				"ubuntu/conf/bash_aliases" : ".bash_aliases",
+				"ubuntu/conf/tmux.conf" : ".tmux.conf"
 			}
 		},
 		"ubuntu-all" : {
-			"includes" : ["ubuntu-bins", "ubuntu-aliases", "vim"]
+			"includes" : ["ubuntu-bins", "ubuntu-conf", "vim"]
 		}
 	}
 }
