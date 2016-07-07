@@ -3,6 +3,10 @@ alias v="mvim"
 alias rm="rm -i"
 alias cp="cp -i"
 
+function gt {
+	git tag -a v$1 -m "Version $1"
+}
+
 gl='/Users/alan/Projects/web/grouplink'
 pp='/Users/alan/Projects/web/patentpro'
 qs='/Users/alan/Projects/web/qstudios'

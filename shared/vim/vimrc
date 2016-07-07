@@ -15,6 +15,8 @@
 	filetype on
 	filetype off
 
+	let g:loaded_logipat = 1
+
 	set rtp+=~/.vim/bundle/Vundle.vim
 	call vundle#begin()
 
@@ -97,7 +99,8 @@
 	  " For all text files set 'textwidth' to 78 characters.
 	  autocmd FileType text setlocal textwidth=78
 	  autocmd FileType ruby setlocal expandtab
-	  autocmd FileType haml setlocal noexpandtab
+	  autocmd FileType haml setlocal expandtab
+		autocmd FileType swift setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4 
 
 	  " When editing a file, always jump to the last known cursor position.
 	  " Don't do it when the position is invalid or when inside an event handler
@@ -127,11 +130,14 @@
 
 autocmd BufEnter * :cd %:p:h
 
+let g:netrw_nobeval = 1
+
 if has("gui_running")
 	if bufnr('$') == 1
 		set co=80
 		set lines=40
 	end
+	set noballooneval
 	colors eclipse
 endif
 
@@ -145,8 +151,8 @@ map <M-]> :tabn<CR>
 map <D-[> :tabp<CR>
 map <D-]> :tabn<CR>
 map <S-T> :Rtree<CR>
-map \\b :set noet<bar>retab!<CR>
-map \\w :set co=160<CR>
+map \\b :set expandtab<bar>retab!<CR>
+map \\w :set co=205<CR>
 
 map ,s :ProjectRootExe mksession! session.vis<CR>
 map ,e :CtrlP<CR>

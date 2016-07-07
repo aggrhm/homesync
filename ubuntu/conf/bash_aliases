@@ -1,14 +1,15 @@
 alias be='bundle exec'
 
 # FRAMEHERO
-alias cfha='cd ~/Projects/api/framehero'
-alias cfhw='cd ~/Projects/web/framehero'
-alias cfhd='cd ~/Projects/deploy/framehero'
-alias rfha='cd ~/Projects/api/framehero; bundle exec rails s -p 4010'
-alias rfhw='cd ~/Projects/web/framehero; bundle exec rails s -p 3010'
-alias rfhj='cd ~/Projects/api/framehero; bundle exec script/job_processor restart'
-alias rfhc='cd ~/Projects/api/framehero; bundle exec rails console'
-alias rfhm='cd ~/Projects/web/mediasurf; QUICK_FILE_CONFIG=~/Projects/api/framehero/config/quick_file.yml bundle exec ruby app.rb -o 0.0.0.0 -p 5010'
+alias cfha='cd ~/Projects/api/framehero_api'
+alias cfhw='cd ~/Projects/web/framehero_web'
+alias cfhd='cd ~/Projects/deploy/framehero_deploy'
+alias rfha='cd ~/Projects/api/framehero_api; bundle exec rails s -p 4010'
+alias rfhw='cd ~/Projects/web/framehero_web; bundle exec rails s -p 3010'
+alias rfhj='cd ~/Projects/api/framehero_api; bundle exec script/job_processor restart'
+alias rfhc='cd ~/Projects/api/framehero_api; bundle exec rails console'
+alias rfhm='cd ~/Projects/web/mediasurf; QUICK_FILE_CONFIG=~/Projects/api/framehero_api/config/quick_file.yml bundle exec ruby app.rb -o 0.0.0.0 -p 5010'
+alias rfhl='cd ~/Projects/web/livesite; REDIS_URL=redis://localhost:6379 LIVESITE_PORT=9010 npm start'
 
 # SPOTFLASH
 alias csfa='cd ~/Projects/api/spotflash'
@@ -20,10 +21,11 @@ alias rsfw='cd ~/Projects/web/spotflash; bundle exec rails s -p 3000'
 alias csfd='cd ~/Projects/deploy/spotflash'
 
 # BOXCHIEF
-alias cbcw='cd ~/Projects/web/boxchief'
+alias cbcw='cd ~/Projects/web/boxchief_web'
 alias cbcd='cd ~/Projects/deploy/boxchief'
-alias rbcw='cd ~/Projects/web/boxchief && bundle exec rails s -p 3012'
-alias rbcj='cd ~/Projects/web/boxchief && bundle exec script/job_processor restart'
+alias rbcw='cd ~/Projects/web/boxchief_web && bundle exec rails s -p 3012'
+alias rbcj='cd ~/Projects/web/boxchief_web && bundle exec script/job_processor restart'
+alias rbcr='cd ~/Projects/web/boxchief_web && bundle exec script/test_reporter'
 
 # DOCSBY
 alias cdbw='cd ~/Projects/web/docsby'
@@ -31,3 +33,11 @@ alias cdbd='cd ~/Projects/deploy/docsby'
 alias rdbw='cd ~/Projects/web/docsby && bundle exec rails s -p 3015'
 alias rdbj='cd ~/Projects/web/docsby && bundle exec script/job_processor restart'
 
+# DIDTHAT
+alias cdta='cd ~/Projects/api/didthat-api'
+alias cdtw='cd ~/Projects/web/didthat-web'
+alias cdtd='cd ~/Projects/deploy/didthat'
+alias rdta='cd ~/Projects/api/didthat-api; bundle exec rails s -p 3001 -b 0.0.0.0'
+alias rdtw='cd ~/Projects/web/didthat-web; bundle exec rails s -p 3000 -b 0.0.0.0'
+alias rdtj='cd ~/Projects/api/didthat-api; bundle exec script/job_processor restart'
+alias rdtc='cd ~/Projects/api/didthat-api; bundle exec rails console'
