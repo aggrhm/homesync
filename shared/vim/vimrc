@@ -27,6 +27,9 @@
 	Plugin 'dbakker/vim-projectroot'
 	Plugin 'groenewege/vim-less'
 	Plugin 'keith/swift.vim'
+	Plugin 'pangloss/vim-javascript'
+	Plugin 'mxw/vim-jsx'
+  "Plugin 'flazz/vim-colorschemes'
 
 	call vundle#end()
 	filetype plugin indent on
@@ -68,11 +71,10 @@
 
 
 	" Set shift width (indent) to 4 spaces
+	set expandtab
 	set shiftwidth=2
 	set softtabstop=2
 	set ts=2
-
-	set tags=/osi/common/vob/tags,./tags
 
 	" Uncomment this line to turn off backup files
 	set nobackup
@@ -81,7 +83,7 @@
 	" Switch syntax highlighting on, when the terminal has colors
 	" Also switch on highlighting the last used search pattern.
 	if &t_Co > 2 || has("gui_running")
-	  syntax on
+	  syntax enable
 	  set hlsearch
 	endif
 
@@ -123,6 +125,8 @@
 
 	au BufRead,BufNewFile *.md set filetype=markdown
 	au BufRead,BufNewFile *.jhaml set filetype=haml
+	au BufRead,BufNewFile *.jhtml set filetype=html
+	au BufRead,BufNewFile *.qsc set filetype=coffee
 
 	" automatically source vim sessions so I can open them with the finder
 	set sessionoptions+=resize,winpos
@@ -138,8 +142,17 @@ if has("gui_running")
 		set lines=40
 	end
 	set noballooneval
-	colors eclipse
+  " for solarized
+  set background=dark
+  let g:solarized_contrast = "high"
+
+	colors codeschoolplus
+	"colors eclipse
+	"colors PaperColor
+  set fillchars+=vert:\ 
 endif
+
+let g:jsx_ext_required = 0
 
 imap \\t <%=  %><LEFT><LEFT><LEFT>
 imap \\a {{  }}<LEFT><LEFT><LEFT>
@@ -156,5 +169,9 @@ map \\w :set co=205<CR>
 
 map ,s :ProjectRootExe mksession! session.vis<CR>
 map ,e :CtrlP<CR>
+map ,n :set invnumber<CR>
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>

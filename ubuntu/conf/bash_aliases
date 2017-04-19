@@ -34,10 +34,21 @@ alias rdbw='cd ~/Projects/web/docsby && bundle exec rails s -p 3015'
 alias rdbj='cd ~/Projects/web/docsby && bundle exec script/job_processor restart'
 
 # DIDTHAT
+export DT_WEB_ROOT=http://192.168.1.15:3000
 alias cdta='cd ~/Projects/api/didthat-api'
 alias cdtw='cd ~/Projects/web/didthat-web'
 alias cdtd='cd ~/Projects/deploy/didthat'
 alias rdta='cd ~/Projects/api/didthat-api; bundle exec rails s -p 3001 -b 0.0.0.0'
 alias rdtw='cd ~/Projects/web/didthat-web; bundle exec rails s -p 3000 -b 0.0.0.0'
+alias rdtm='cd ~/Projects/web/didthat-admin; bundle exec rails s -p 3002 -b 0.0.0.0'
 alias rdtj='cd ~/Projects/api/didthat-api; bundle exec script/job_processor restart'
 alias rdtc='cd ~/Projects/api/didthat-api; bundle exec rails console'
+
+# OVERWATCH
+alias cowa='cd ~/Projects/api/overwatch_api'
+alias coww='cd ~/Projects/web/overwatch_web'
+alias cowd='cd ~/Projects/deploy/overwatch'
+alias rowa='cd ~/Projects/api/overwatch_api; bundle exec rails s -p 4016 -b 0.0.0.0'
+alias roww='cd ~/Projects/web/overwatch_web; bundle exec rails s -p 3016 -b 0.0.0.0'
+alias rowj='cd ~/Projects/api/overwatch_api; bundle exec script/job_processor restart'
+alias rowc='cd ~/Projects/api/overwatch_api; bundle exec rails console'

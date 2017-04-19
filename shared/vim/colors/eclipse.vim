@@ -6,7 +6,7 @@ endif
 
 let g:colors_name = "eclipse"
 
-highlight Normal gui=none guifg=#000000 guibg=#ffffff ctermfg=Gray
+highlight Normal gui=none guifg=#000000 guibg=#f7f7f7 ctermfg=Gray
 
 " Search
 highlight IncSearch gui=underline guifg=#404040 guibg=#e0e040
@@ -22,8 +22,10 @@ highlight Question   gui=none guifg=#8000ff guibg=bg
 " Split area
 highlight StatusLine   gui=none guifg=#ffffff guibg=#4570aa cterm=bold       ctermbg=blue     ctermfg=white
 highlight StatusLineNC gui=none guifg=#ffffff guibg=#75a0da cterm=none       ctermfg=darkgrey ctermbg=blue
-highlight VertSplit    gui=none guifg=#f8f8f8 guibg=#904838 ctermfg=darkgrey cterm=none       ctermbg=blue
+"highlight VertSplit    gui=none guifg=#f8f8f8 guibg=#904838 ctermfg=darkgrey cterm=none       ctermbg=blue
+highlight VertSplit    gui=none guifg=#f8f8f8 guibg=#75a0da ctermfg=darkgrey cterm=none       ctermbg=blue
 highlight WildMenu     gui=none guifg=#f8f8f8 guibg=#ff3030
+highlight TabLineFill   gui=none guifg=#ffffff guibg=#4570aa cterm=bold       ctermbg=blue     ctermfg=white
 
 " Diff
 highlight DiffText   gui=none guifg=red   guibg=#ffd0d0 cterm=bold    ctermbg=5  ctermfg=3
