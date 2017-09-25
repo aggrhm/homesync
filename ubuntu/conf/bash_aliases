@@ -52,3 +52,4 @@ alias rowa='cd ~/Projects/api/overwatch_api; bundle exec rails s -p 4016 -b 0.0.
 alias roww='cd ~/Projects/web/overwatch_web; bundle exec rails s -p 3016 -b 0.0.0.0'
 alias rowj='cd ~/Projects/api/overwatch_api; bundle exec script/job_processor restart'
 alias rowc='cd ~/Projects/api/overwatch_api; bundle exec rails console'
+alias rowl='cd ~/Projects/web/livesite; REDIS_URL=redis://localhost:6379 LIVESITE_PORT=9016 npm start'

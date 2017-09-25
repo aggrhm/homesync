@@ -29,6 +29,7 @@
 	Plugin 'keith/swift.vim'
 	Plugin 'pangloss/vim-javascript'
 	Plugin 'mxw/vim-jsx'
+  Plugin 'wting/gitsessions.vim'
   "Plugin 'flazz/vim-colorschemes'
 
 	call vundle#end()
@@ -167,7 +168,7 @@ map <S-T> :Rtree<CR>
 map \\b :set expandtab<bar>retab!<CR>
 map \\w :set co=205<CR>
 
-map ,s :ProjectRootExe mksession! session.vis<CR>
+map ,s :GitSessionSave<CR>
 map ,e :CtrlP<CR>
 map ,n :set invnumber<CR>
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
