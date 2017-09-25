@@ -128,6 +128,7 @@
 	au BufRead,BufNewFile *.jhaml set filetype=haml
 	au BufRead,BufNewFile *.jhtml set filetype=html
 	au BufRead,BufNewFile *.qsc set filetype=coffee
+	au BufRead,BufNewFile *.qsj set filetype=javascript
 
 	" automatically source vim sessions so I can open them with the finder
 	set sessionoptions+=resize,winpos
