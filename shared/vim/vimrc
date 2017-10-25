@@ -135,7 +135,8 @@
 	set sessionoptions+=resize,winpos
 	au BufRead *.vis so %
 
-autocmd BufEnter * :cd %:p:h
+"autocmd BufEnter * :cd %:p:h
+set autochdir
 
 let g:netrw_nobeval = 1
 
