@@ -4,7 +4,8 @@
 			"dirs": [".vim", ".vim/bundle", ".vim/backup"],
 			"links": {
 				"shared/vim/vimrc": ".vimrc",
-				"shared/vim/colors": ".vim/colors"
+				"shared/vim/colors": ".vim/colors",
+				"shared/vim/plugin": ".vim/plugin"
 			},
 			"postscripts": [
 				"git clone https://github.com/gmarik/Vundle.vim.git .vim/bundle/Vundle.vim"

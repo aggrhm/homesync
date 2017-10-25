@@ -169,7 +169,7 @@ map <S-T> :Rtree<CR>
 map \\b :set expandtab<bar>retab!<CR>
 map \\w :set co=205<CR>
 
-map ,s :GitSessionSave<CR>
+"map ,s :GitSessionSave<CR>
 map ,e :CtrlP<CR>
 map ,n :set invnumber<CR>
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
