@@ -29,7 +29,8 @@
 	Plugin 'keith/swift.vim'
 	Plugin 'pangloss/vim-javascript'
 	Plugin 'mxw/vim-jsx'
-  Plugin 'wting/gitsessions.vim'
+	Plugin 'agquick/autosession.vim'
+  "Plugin 'wting/gitsessions.vim'
   "Plugin 'flazz/vim-colorschemes'
 
 	call vundle#end()
