@@ -57,6 +57,7 @@
 	"
 	" let &guioptions = substitute(&guioptions, "t", "", "g")
 	set guioptions=ai
+  set sessionoptions-=curdir
 	"set guifont=Courier\ 10\ Pitch\ 10
 	if has("gui_macvim")
 		set guifont=Monaco:h11
@@ -135,8 +136,8 @@
 	set sessionoptions+=resize,winpos
 	au BufRead *.vis so %
 
-"autocmd BufEnter * :cd %:p:h
-set autochdir
+autocmd BufEnter * :cd %:p:h
+"set autochdir
 
 let g:netrw_nobeval = 1
 
@@ -171,7 +172,8 @@ map <S-T> :Rtree<CR>
 map \\b :set expandtab<bar>retab!<CR>
 map \\w :set co=205<CR>
 
-"map ,s :GitSessionSave<CR>
+map <expr> ,s ':AutoSessionSave '.projectroot#guess().'/.vimsession'
+map <expr> ,l ':AutoSessionLoad '.projectroot#guess().'/.vimsession'
 map ,e :CtrlP<CR>
 map ,n :set invnumber<CR>
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
