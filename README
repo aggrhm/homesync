@@ -1,4 +1,4 @@
 Use `stow` to install
 
-$ stow vim
-$ stow bash
+$ stow -t ~ vim
+$ stow -t ~ bash
