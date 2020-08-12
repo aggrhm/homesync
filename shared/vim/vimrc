@@ -16,12 +16,13 @@
 	filetype off
 
 	let g:loaded_logipat = 1
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
 	set rtp+=~/.vim/bundle/Vundle.vim
 	call vundle#begin()
 
 	Plugin 'gmarik/Vundle.vim'
-	Plugin 'kien/ctrlp.vim'
+	Plugin 'ctrlpvim/ctrlp.vim'
 	Plugin 'ekalinin/Dockerfile.vim'
 	Plugin 'kchmck/vim-coffee-script'
 	Plugin 'dbakker/vim-projectroot'
@@ -30,6 +31,7 @@
 	Plugin 'pangloss/vim-javascript'
 	Plugin 'mxw/vim-jsx'
 	Plugin 'agquick/autosession.vim'
+  Plugin 'posva/vim-vue'
   "Plugin 'wting/gitsessions.vim'
   "Plugin 'flazz/vim-colorschemes'
 
@@ -81,6 +83,8 @@
 
 	" Uncomment this line to turn off backup files
 	set nobackup
+  set nowritebackup
+  set noswapfile
 	set dir=~/.vim/backup//
 
 	" Switch syntax highlighting on, when the terminal has colors
@@ -106,6 +110,8 @@
 	  autocmd FileType ruby setlocal expandtab
 	  autocmd FileType haml setlocal expandtab
 		autocmd FileType swift setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4 
+		autocmd FileType python setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2 
+	  autocmd FileType go setlocal noexpandtab
 
 	  " When editing a file, always jump to the last known cursor position.
 	  " Don't do it when the position is invalid or when inside an event handler
@@ -181,3 +187,11 @@ map ,n :set invnumber<CR>
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+function! g:DirGrep(...)
+  let l:query = get(a:, 1, 'query')
+  let l:ext = get(a:, 2, '.rb')
+  execute "cd " . projectroot#guess()
+  execute 'grep -r -i "' . l:query . '" `git ls-files \| grep ' . l:ext . '`'
+endfunction
+command! -nargs=+ -complete=file DirGrep call g:DirGrep(<f-args>)
