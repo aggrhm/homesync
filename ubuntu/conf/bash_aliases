@@ -34,7 +34,8 @@ alias rdbw='cd ~/Projects/web/docsby && bundle exec rails s -p 3015'
 alias rdbj='cd ~/Projects/web/docsby && bundle exec script/job_processor restart'
 
 # DIDTHAT
-export DT_WEB_ROOT=http://192.168.50.10:3000
+#export DT_WEB_ROOT=http://192.168.50.10:3000
+export DT_WEB_ROOT=http://192.168.1.15:3000
 alias cdta='cd ~/Projects/api/didthat-api'
 alias cdtw='cd ~/Projects/web/didthat-web'
 alias cdtd='cd ~/Projects/deploy/didthat'
@@ -50,6 +51,10 @@ alias coww='cd ~/Projects/web/overwatch_web'
 alias cowd='cd ~/Projects/deploy/overwatch'
 alias rowa='cd ~/Projects/api/overwatch_api; bundle exec rails s -p 4016 -b 0.0.0.0'
 alias roww='cd ~/Projects/web/overwatch_web; bundle exec rails s -p 3016 -b 0.0.0.0'
-alias rowj='cd ~/Projects/api/overwatch_api; bundle exec script/app_cron restart; bundle exec script/app_collect restart'
+alias rowww='cd ~/Projects/web/overwatch_web/web; gulp build-jamba; gulp watch-jamba;'
+alias rowj='cd ~/Projects/api/overwatch_api; bundle exec script/app_cron restart; bundle exec script/app_collect restart; bundle exec script/app_listen restart'
 alias rowc='cd ~/Projects/api/overwatch_api; bundle exec rails console'
 alias rowl='cd ~/Projects/web/livesite; REDIS_URL=redis://localhost:6379 LIVESITE_PORT=9016 npm start'
+alias rowjs='cd ~/Projects/api/overwatch_jsr_service; npm start'
+
+source ~/Projects/api/safemonit_api/bin/aliases
