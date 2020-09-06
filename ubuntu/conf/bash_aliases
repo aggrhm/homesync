@@ -57,4 +57,5 @@ alias rowc='cd ~/Projects/api/overwatch_api; bundle exec rails console'
 alias rowl='cd ~/Projects/web/livesite; REDIS_URL=redis://localhost:6379 LIVESITE_PORT=9016 npm start'
 alias rowjs='cd ~/Projects/api/overwatch_jsr_service; npm start'
 
+# SAFEMONIT
 source ~/Projects/api/safemonit_api/bin/aliases
