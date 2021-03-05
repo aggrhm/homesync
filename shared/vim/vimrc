@@ -21,7 +21,18 @@
   let g:airline_theme = 'bubblegum'
   let g:airline_section_c = '%t'
   let g:airline_section_y = ''
+  let g:airline_section_z = "%p%% %#__accent_bold#%{g:airline_symbols.linenr}%l%#__restore__#%#__accent_bold#/%L"
   let g:airline_skip_empty_sections = 1
+  let g:airline#extensions#tabline#enabled = 0
+  "let g:airline#extensions#tabline#show_tabs = 0
+  let g:airline#extensions#tabline#show_tab_count = 0
+  let g:airline#extensions#tabline#show_splits = 0
+  let g:airline#extensions#tabline#tab_nr_type = 1
+  let g:airline#extensions#tabline#show_tab_type = 0
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
+  let g:airline#extensions#tabline#right_sep = ''
+  let g:airline#extensions#tabline#right_alt_sep = ''
   let NERDTreeQuitOnOpen = 1
 
 
@@ -211,3 +222,4 @@ function! g:DirGrep(...)
   execute "Ack " . l:query . " " . projectroot#guess()
 endfunction
 command! -nargs=+ -complete=file DirGrep call g:DirGrep(<f-args>)
+
