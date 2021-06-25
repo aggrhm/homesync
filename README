@@ -1,3 +1,5 @@
+Run `prepare` to setup directories
+
 Use `stow` to install
 
 $ stow -t ~ vim

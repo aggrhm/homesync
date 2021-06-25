@@ -1,0 +1,5 @@
+#! /bin/bash
+
+mkdir -p ~/bin
+mkdir -p ~/.vim
+mkdir -p ~/.ssh

@@ -16,12 +16,31 @@
 	filetype off
 
 	let g:loaded_logipat = 1
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ackprg = 'ag --vimgrep'
+  let g:airline_theme = 'bubblegum'
+  let g:airline_section_c = '%t'
+  let g:airline_section_y = ''
+  let g:airline_section_z = "%p%% %#__accent_bold#%{g:airline_symbols.linenr}%l%#__restore__#%#__accent_bold#/%L"
+  let g:airline_skip_empty_sections = 1
+  let g:airline#extensions#tabline#enabled = 0
+  "let g:airline#extensions#tabline#show_tabs = 0
+  let g:airline#extensions#tabline#show_tab_count = 0
+  let g:airline#extensions#tabline#show_splits = 0
+  let g:airline#extensions#tabline#tab_nr_type = 1
+  let g:airline#extensions#tabline#show_tab_type = 0
+  let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = ''
+  let g:airline#extensions#tabline#right_sep = ''
+  let g:airline#extensions#tabline#right_alt_sep = ''
+  let NERDTreeQuitOnOpen = 1
+
 
 	set rtp+=~/.vim/bundle/Vundle.vim
 	call vundle#begin()
 
 	Plugin 'gmarik/Vundle.vim'
-	Plugin 'kien/ctrlp.vim'
+	Plugin 'ctrlpvim/ctrlp.vim'
 	Plugin 'ekalinin/Dockerfile.vim'
 	Plugin 'kchmck/vim-coffee-script'
 	Plugin 'dbakker/vim-projectroot'
@@ -30,6 +49,12 @@
 	Plugin 'pangloss/vim-javascript'
 	Plugin 'mxw/vim-jsx'
 	Plugin 'agquick/autosession.vim'
+  Plugin 'posva/vim-vue'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'mileszs/ack.vim'
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'preservim/nerdtree'
   "Plugin 'wting/gitsessions.vim'
   "Plugin 'flazz/vim-colorschemes'
 
@@ -60,7 +85,7 @@
   set sessionoptions-=curdir
 	"set guifont=Courier\ 10\ Pitch\ 10
 	if has("gui_macvim")
-		set guifont=Monaco:h11
+		set guifont=Monaco:h12
 	else
 		set guifont=Monospace\ 10
 	end
@@ -81,6 +106,8 @@
 
 	" Uncomment this line to turn off backup files
 	set nobackup
+  set nowritebackup
+  set noswapfile
 	set dir=~/.vim/backup//
 
 	" Switch syntax highlighting on, when the terminal has colors
@@ -106,6 +133,8 @@
 	  autocmd FileType ruby setlocal expandtab
 	  autocmd FileType haml setlocal expandtab
 		autocmd FileType swift setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4 
+		autocmd FileType python setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2 
+	  autocmd FileType go setlocal noexpandtab
 
 	  " When editing a file, always jump to the last known cursor position.
 	  " Don't do it when the position is invalid or when inside an event handler
@@ -176,8 +205,21 @@ map <expr> ,s ':AutoSessionSave '.projectroot#guess().'/.vimsession'
 map <expr> ,l ':AutoSessionLoad '.projectroot#guess().'/.vimsession'
 map ,e :CtrlP<CR>
 map ,n :set invnumber<CR>
+map ,f :DirGrep 
+map ,t :NERDTreeFind<CR>
+map ,tc :NERDTreeClose<CR>
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+function! g:DirGrep(...)
+  let l:query = get(a:, 1, 'query')
+  let l:ext = get(a:, 2, '.rb')
+  "execute "cd " . projectroot#guess()
+  "execute 'grep -r -i "' . l:query . '" `git ls-files \| grep ' . l:ext . '`'
+  execute "Ack " . l:query . " " . projectroot#guess()
+endfunction
+command! -nargs=+ -complete=file DirGrep call g:DirGrep(<f-args>)
+

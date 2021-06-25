@@ -1,0 +1,19 @@
+environments:
+  ignitio:
+    host: ignitio-deploy
+    user: centos
+    ports:
+      - name: Grafana
+        local: 4010
+        remote: localhost:3000
+
+  ignitio-aws:
+    host: ignitio-deploy-aws
+    user: ubuntu
+    ports:
+      - name: Kubernetes OKD
+        local: 4011
+        remote: localhost:9000
+      - name: Kubernetes Dashboard
+        local: 4012
+        remote: 192.168.60.143:8443

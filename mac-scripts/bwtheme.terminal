@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BackgroundColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxARElVO
+	U1JHQlxOU0NvbG9yU3BhY2VWJGNsYXNzSjAgMCAwIDAuOAAQAYAC0hQVFhdaJGNsYXNz
+	bmFtZVgkY2xhc3Nlc1dOU0NvbG9yohYYWE5TT2JqZWN0CBEaJCkyN0lMUVNXXWRqd36J
+	i42SnaausQAAAAAAAAEBAAAAAAAAABkAAAAAAAAAAAAAAAAAAAC6
+	</data>
+	<key>CursorType</key>
+	<integer>0</integer>
+	<key>DisableANSIColor</key>
+	<false/>
+	<key>Font</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGkCwwVFlUkbnVsbNQNDg8QERIT
+	FFZOU1NpemVYTlNmRmxhZ3NWTlNOYW1lViRjbGFzcyNAKAAAAAAAABAQgAKAA1ZNb25h
+	Y2/SFxgZGlokY2xhc3NuYW1lWCRjbGFzc2VzVk5TRm9udKIZG1hOU09iamVjdAgRGiQp
+	MjdJTFFTWF5nbnd+hY6QkpSboKu0u74AAAAAAAABAQAAAAAAAAAcAAAAAAAAAAAAAAAA
+	AAAAxw==
+	</data>
+	<key>FontAntialias</key>
+	<true/>
+	<key>FontHeightSpacing</key>
+	<real>0.8774571572580645</real>
+	<key>FontWidthSpacing</key>
+	<real>0.98847026209677424</real>
+	<key>Linewrap</key>
+	<true/>
+	<key>ProfileCurrentVersion</key>
+	<real>2.0699999999999998</real>
+	<key>TextBoldColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxARElVO
+	U1JHQlxOU0NvbG9yU3BhY2VWJGNsYXNzTxAnMC43NzA0MDgxNjMzIDAuNjg5MzI0NzMz
+	MiAwLjM5ODc3NDAyODcAEAGAAtIUFRYXWiRjbGFzc25hbWVYJGNsYXNzZXNXTlNDb2xv
+	cqIWGFhOU09iamVjdAgRGiQpMjdJTFFTV11kand+qKqssbzFzdAAAAAAAAABAQAAAAAA
+	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
+	</data>
+	<key>TextColor</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGjCwwTVSRudWxs0w0ODxARElVO
+	U1JHQlxOU0NvbG9yU3BhY2VWJGNsYXNzRjEgMSAxABABgALSFBUWF1okY2xhc3NuYW1l
+	WCRjbGFzc2VzV05TQ29sb3KiFhhYTlNPYmplY3QIERokKTI3SUxRU1ddZGp3foWHiY6Z
+	oqqtAAAAAAAAAQEAAAAAAAAAGQAAAAAAAAAAAAAAAAAAALY=
+	</data>
+	<key>UseBoldFonts</key>
+	<true/>
+	<key>UseBrightBold</key>
+	<false/>
+	<key>name</key>
+	<string>bwtheme</string>
+	<key>shellExitAction</key>
+	<integer>1</integer>
+	<key>type</key>
+	<string>Window Settings</string>
+</dict>
+</plist>

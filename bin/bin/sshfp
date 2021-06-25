@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+# NOTE: With tmux, double click text with the 'fn' key to select text for copy
+#
+
+require 'yaml'
+
+env_name = ARGV[0]
+
+config = YAML.load_file("#{ENV['HOME']}/.sshfprc")
+env = config['environments'][env_name]
+raise "Environment #{env_name} not found." if env.nil?
+
+user = env['user']
+host = env['host']
+pargs = env['ports'].collect {|popts|
+  "-L #{popts['local']}:#{popts['remote']}"
+}
+cmd = "ssh -N #{pargs.join(" ")} #{user}@#{host}"
+
+puts "Creating ports for #{env_name}:"
+env['ports'].each do |popts|
+  puts " - #{popts['name']} on port #{popts['local']}"
+end
+
+delay = 1
+loop do
+  last_attempt_at = Time.now
+  system(cmd)
+
+  now = Time.now
+  if (now - last_attempt_at) < 60
+    delay = (delay * 2)
+  else
+    delay = 1
+  end
+  puts "Connection disconnected. Waiting #{delay} seconds to reconnect."
+  sleep delay
+end

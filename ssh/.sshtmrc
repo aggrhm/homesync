@@ -1,0 +1,20 @@
+projects:
+  owd: 
+    host: pl-workstation
+  wed:
+    host: pl-workstation
+  phd: 
+    host: home.safemonit.com
+  igd:
+    host: centos@ignitio-deploy
+  igda:
+    host: ubuntu@ignitio-deploy-aws
+  wem:
+    host: centos@worldeye-deploy
+  phw:
+    host: home.safemonit.com
+    directory: "~/Projects/web/phamily-rails"
+  pha:
+    host: ubuntu@18.191.148.100
+  smd:
+    host: home.remote

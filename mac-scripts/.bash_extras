@@ -22,3 +22,6 @@ PATH="$PATH:/usr/local/bin:~/Projects/tools/android-sdk-mac_86/tools"
 
 source ~/.myprompt
 qsprompt
+
+alias sshplw="ssh -A alan@pl-workstation"
+alias sshhmw="ssh -A alan@home.local"

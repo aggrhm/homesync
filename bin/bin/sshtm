@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+# NOTE: With tmux, double click text with the 'fn' key to select text for copy
+#
+
+require 'yaml'
+
+session_name = ARGV[0]
+integrated_mode = session_name.end_with?("-tabs")
+#session_name = session_name + "-tabs" if integrated_mode
+project_prefix = session_name.split("-")[0]
+config = YAML.load_file("#{ENV['HOME']}/.sshtmrc")
+delay = 1
+project = config["projects"][project_prefix]
+if project.nil?
+  directory_mode = true
+  dir = ARGV[1]
+  host = ARGV[0]
+else
+  host = project["host"]
+  dir = project["directory"]
+  directory_mode = true if dir || !session_name.include?("-")
+end
+dir = "~" if dir.nil? && directory_mode
+
+loop do
+  last_attempt_at = Time.now
+  if directory_mode
+    puts "Connecting to #{host} in directory #{dir}."
+    ret = system("ssh -A #{host} -t \"cd #{dir} && /bin/bash --login\"")
+  else
+    puts "Connecting to #{host} with session #{session_name} (integrated=#{integrated_mode})."
+    cmds = []
+    auth_sock = "/tmp/ssh-#{session_name}-agent.tmux"
+    cmds << "ln -sf \\$SSH_AUTH_SOCK #{auth_sock}"
+    cmds << "export SSH_AUTH_SOCK=#{auth_sock}"
+    flags = integrated_mode ? "-CC" : ""
+    cmds << "tmux #{flags} new-session -A -s #{session_name} 'export SSH_AUTH_SOCK=#{auth_sock}; tmux setenv SSH_AUTH_SOCK #{auth_sock}; /bin/bash --login'"
+    ret = system("ssh -A #{host} -t \"#{cmds.join("; ")}\"")
+  end
+  exit if (ret)
+  now = Time.now
+  if (now - last_attempt_at) < 60
+    # delay reconnect
+    delay = (delay * 2)
+  else
+    delay = 1
+  end
+  puts "Connection disconnected. Waiting #{delay} seconds to reconnect."
+  sleep delay
+end

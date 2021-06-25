@@ -1,4 +1,0 @@
-#!/bin/bash
-
-sudo rm -f /data/db/mongod.lock
-sudo mongod &
