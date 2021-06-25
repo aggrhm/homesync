@@ -22,6 +22,7 @@ env['ports'].each do |popts|
   puts " - #{popts['name']} on port #{popts['local']}"
 end
 
+delay = 1
 loop do
   last_attempt_at = Time.now
   system(cmd)

@@ -18,8 +18,9 @@ if project.nil?
 else
   host = project["host"]
   dir = project["directory"]
-  directory_mode = true if dir
+  directory_mode = true if dir || !session_name.include?("-")
 end
+dir = "~" if dir.nil? && directory_mode
 
 loop do
   last_attempt_at = Time.now
