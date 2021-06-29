@@ -1,0 +1,11 @@
+#! /bin/bash
+
+# create orig files not exists
+
+if [ ! -f "/etc/hosts.orig" ]; then
+
+  cat /etc/hosts > /etc/hosts.orig
+
+fi
+
+cat /etc/hosts.orig ./hosts > /etc/hosts
