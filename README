@@ -2,5 +2,9 @@ Run `prepare` to setup directories
 
 Use `stow` to install
 
+```
 $ stow -t ~ vim
 $ stow -t ~ bash
+```
+
+Run `install_hosts` to add hosts to hosts file
