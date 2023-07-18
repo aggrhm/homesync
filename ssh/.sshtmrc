@@ -1,9 +1,16 @@
 projects:
   owd: 
     host: pl-workstation
+    sessions:
+      api: cowa && foreman start
+      web: coww && foreman start
+      jsr: cd ~/Projects/api/overwatch_jsr_service && foreman start
+      console: cd ~/Projects/api/overwatch_api && bundle exec rails c
   wed:
     host: pl-workstation
   phd: 
+    host: home.safemonit.com
+  phe: 
     host: home.safemonit.com
   igd:
     host: centos@ignitio-deploy
@@ -18,3 +25,7 @@ projects:
     host: ubuntu@18.191.148.100
   smd:
     host: home.remote
+  qrd:
+    host: home.remote
+  qrpd:
+    host: ubuntu@deploy.justqrme.com

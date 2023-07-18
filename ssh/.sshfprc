@@ -11,9 +11,12 @@ environments:
     host: ignitio-deploy-aws
     user: ubuntu
     ports:
-      - name: Kubernetes OKD
+      - name: Production Kubernetes OKD
         local: 4011
         remote: localhost:9000
+      - name: Staging Kubernetes OKD
+        local: 8000
+        remote: localhost:8000
       - name: Kubernetes Dashboard
-        local: 4012
+        local: 4013
         remote: 192.168.60.143:8443
